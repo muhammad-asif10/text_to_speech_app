@@ -1,6 +1,6 @@
 # 🗣️ Text-to-Speech & Translator App
 
-![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
+![Python](https://img.shields.io/badge/Python-3.14-blue?logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28-orange?logo=streamlit)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -94,6 +94,7 @@ streamlit run app.py
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
 ---
+
 
 
 
