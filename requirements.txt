@@ -1,0 +1,5 @@
+# Streamlit web app
+streamlit==1.28.0
+
+# Cross-platform Text-to-Speech engine
+pyttsx3==2.90
