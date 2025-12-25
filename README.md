@@ -1,4 +1,3 @@
-````markdown
 # 🗣️ Text-to-Speech & Translator App
 
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
@@ -34,8 +33,8 @@ A **cross-platform Text-to-Speech (TTS) web application** built with **Python** 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/muhammad-asif10/tts-translator-app.git
-cd tts-translator-app
+git clone https://github.com/muhammad-asif10/text_to_speech_app.git
+cd text_to_speech_app
 ````
 
 2. Create a virtual environment (optional but recommended):
@@ -84,16 +83,10 @@ streamlit run app.py
 * **Streamlit Cloud:** Fully deployable
 
 ---
-
 ## 👨‍💻 Developer
 
 **Muhammad Asif**
-
 * University of Veterinary & Animal Sciences (UVAS), Ravi Campus
-* [GitHub](https://github.com/your-username)
-* [LinkedIn](https://linkedin.com/in/your-profile)
-* [Portfolio](https://your-portfolio.com)
-
 ---
 
 ## 📜 License
@@ -102,11 +95,6 @@ This project is licensed under the **MIT License** – see the [LICENSE](LICENSE
 
 ---
 
-## 💡 Future Enhancements
 
-* Support multiple languages beyond Urdu
-* Voice previews before selecting
-* Save audio output as MP3/WAV
-* Real-time speech animation for mic button
 
 
