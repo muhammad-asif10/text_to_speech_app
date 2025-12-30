@@ -1,5 +1,6 @@
 import streamlit as st
 import pyttsx3
+import os
 
 st.set_page_config(
     page_title="TTS",
@@ -9,48 +10,58 @@ st.set_page_config(
 st.title("Text to Speech")
 text = st.text_area("Type text and click the Speak button to hear it.", height=100)
 
+# Initialize engine
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
-
-# Create a dictionary of voice_name: voice_id
 voice_names = [voice.name for voice in voices]
 
 selected_voice_name = st.selectbox("Select Voice", voice_names, index=0)
-selected_voice = next((v for v in voices if v.name == selected_voice_name), None)
+
+# Find the ID for the selected voice name
+selected_voice_id = None
+for v in voices:
+    if v.name == selected_voice_name:
+        selected_voice_id = v.id
+        break
 
 col1, col2 = st.columns(2)
 with col1:
-    rate = st.slider("Speed", 50, 100, 200)  # default 100
+    rate = st.slider("Speed", 50, 200, 100)  
 with col2:
-    volume = st.slider("Volume", 0.0, 0.5, 1.0)
+    volume = st.slider("Volume", 0.0, 1.0, 0.5)
 
 # Speak button
-if st.button("Speak"):
+if st.button("Generate Audio"):
     if text.strip() == "":
         st.warning("Please enter some text.")
     else:
-        engine.setProperty('voice', selected_voice_name)
-        engine.setProperty('rate', rate)
-        engine.setProperty('volume', volume)
-        engine.say(text)
-        engine.runAndWait()
+        try:
+            # Configure engine
+            engine.setProperty('voice', selected_voice_id)
+            engine.setProperty('rate', rate)
+            engine.setProperty('volume', volume)
+            
+            # SAVE TO FILE instead of .say()
+            output_file = "speech.mp3"
+            engine.save_to_file(text, output_file)
+            engine.runAndWait()
+            
+            # Display audio player in browser
+            st.audio(output_file, format="audio/mp3")
+            st.success("Audio generated successfully!")
+            
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
 
+# Footer (Keeping your original styling)
 st.markdown("""
 <style>
 .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #f5f7fa;
-    color: #555;
-    text-align: center;
-    padding: 8px;
-    font-size: 12px;
-    border-top: 1px solid #ddd;
+    position: fixed; left: 0; bottom: 0; width: 100%;
+    background-color: #f5f7fa; color: #555; text-align: center;
+    padding: 8px; font-size: 12px; border-top: 1px solid #ddd;
 }
 </style>
-
 <div class="footer">
 Muhammad Asif | University of Veterinary & Animal Sciences (UVAS), Ravi Campus
 </div>
