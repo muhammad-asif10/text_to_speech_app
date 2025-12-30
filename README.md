@@ -3,6 +3,10 @@
 ![Python](https://img.shields.io/badge/Python-3.14-blue?logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28-orange?logo=streamlit)
 
+## 🚀 Live Demo
+[![Live on Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://text-to-speech-v1.streamlit.app/)
+
+
 A **cross-platform Text-to-Speech (TTS) web application** built with **Python** and **Streamlit**, featuring:
 - Voice selection (male/female)
 - Adjustable speed & volume
@@ -92,6 +96,7 @@ streamlit run app.py
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
 
 ---
+
 
 
 
